@@ -56,6 +56,16 @@ const printer = (event)=>
         }
     
 }
-
-
 document.querySelector('.board').addEventListener('click',printer)
+
+
+const restart = document.querySelector('button')
+restart.addEventListener('click',()=>{
+    const cell = document.getElementsByClassName('cell')
+    Array.from(cell).forEach((value)=>{
+        value.innerHTML=""
+    })
+    board_array=new Array(9).fill("E");
+    document.querySelector('.board').addEventListener('click',printer)
+    document.getElementById('winner').innerHTML=''
+})

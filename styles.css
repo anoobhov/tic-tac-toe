@@ -43,6 +43,7 @@ body{
 .cell:hover{
     transform: scale(0.98);
     background-color: blue;
+    cursor: pointer;
 }
 
 button{
@@ -58,4 +59,10 @@ button:hover{
 }
 button:active{
     background-color: greenyellow;
+}
+.winner{
+    font-family: sans-serif;
+    padding-top: 1rem;
+    font-size: 2rem;
+    color: rgb(1, 77, 1);
 }

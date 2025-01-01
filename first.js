@@ -34,6 +34,7 @@ const printer = (event)=>
                 {
                     document.getElementById('winner').innerHTML='Winner is X'
                     document.querySelector('.board').removeEventListener('click',printer)
+                    return
                 }
                 
             }
@@ -45,6 +46,7 @@ const printer = (event)=>
                 {
                     document.getElementById('winner').innerHTML='Winner is O'
                     document.querySelector('.board').removeEventListener('click',printer)
+                    return
                 }
             }
         }

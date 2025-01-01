@@ -1,5 +1,5 @@
 let turn = 'O'
-
+let total_turn=0
 let winner = [
     [0,1,2],[3,4,5],[6,7,8],
     [0,3,6],[1,4,7],[2,5,8],
@@ -18,32 +18,42 @@ function check_winner()
     return 0
 }
 
-document.querySelector('.board').addEventListener('click',(event)=>{
-    // console.log(event.target.id)
-    let element = document.getElementById(event.target.id)
-    element.textContent = turn
-    if(board_array[element.id]==='E')
-    {
-        if (turn=='X')
+const printer = (event)=>
+{
+        // console.log(event.target.id)
+        let element = document.getElementById(event.target.id)
+        element.textContent = turn
+        if(board_array[element.id]==='E')
         {
-            board_array[element.id]=turn
-            turn='O'
-            if(check_winner())
+            total_turn++
+            if (turn=='X')
             {
-                document.getElementById('winner').innerHTML='Winner is X'
+                board_array[element.id]=turn
+                turn='O'
+                if(check_winner())
+                {
+                    document.getElementById('winner').innerHTML='Winner is X'
+                    document.querySelector('.board').removeEventListener('click',printer)
+                }
+                
             }
-            
+            else
+            {
+                board_array[element.id]=turn
+                turn="X"
+                if(check_winner())
+                {
+                    document.getElementById('winner').innerHTML='Winner is O'
+                    document.querySelector('.board').removeEventListener('click',printer)
+                }
+            }
         }
-        else
+        if(total_turn==9)
         {
-            board_array[element.id]=turn
-            turn="X"
-            if(check_winner())
-            {
-                document.getElementById('winner').innerHTML='Winner is O'
-            }
+            document.getElementById('winner').innerHTML='Match is draw'
         }
-    }
     
+}
 
-})
+
+document.querySelector('.board').addEventListener('click',printer)

@@ -34,7 +34,7 @@ const printer = (event)=>
                 if(check_winner())
                 {
                     document.getElementById('winner').innerHTML='Winner is X'
-                    document.querySelector('board').removeEventListener('click',printer)
+                    document.querySelector('.board').removeEventListener('click',printer)
                     return
                 }
                 
@@ -45,7 +45,7 @@ const printer = (event)=>
                 if(check_winner())
                 {
                     document.getElementById('winner').innerHTML='Winner is O'
-                    document.querySelector('board').removeEventListener('click',printer)
+                    document.querySelector('.board').removeEventListener('click',printer)
                     return
                 }
             }

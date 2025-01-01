@@ -22,30 +22,30 @@ const printer = (event)=>
 {
         // console.log(event.target.id)
         let element = document.getElementById(event.target.id)
-        element.textContent = turn
+        
         if(board_array[element.id]==='E')
         {
+            element.textContent = turn
             total_turn++
+            board_array[element.id]=turn
             if (turn=='X')
             {
-                board_array[element.id]=turn
                 turn='O'
                 if(check_winner())
                 {
                     document.getElementById('winner').innerHTML='Winner is X'
-                    document.querySelector('.board').removeEventListener('click',printer)
+                    document.querySelector('board').removeEventListener('click',printer)
                     return
                 }
                 
             }
             else
             {
-                board_array[element.id]=turn
                 turn="X"
                 if(check_winner())
                 {
                     document.getElementById('winner').innerHTML='Winner is O'
-                    document.querySelector('.board').removeEventListener('click',printer)
+                    document.querySelector('board').removeEventListener('click',printer)
                     return
                 }
             }
@@ -61,6 +61,7 @@ document.querySelector('.board').addEventListener('click',printer)
 
 const restart = document.querySelector('button')
 restart.addEventListener('click',()=>{
+    turn='O'
     const cell = document.getElementsByClassName('cell')
     Array.from(cell).forEach((value)=>{
         value.innerHTML=""

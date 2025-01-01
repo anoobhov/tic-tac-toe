@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(135deg, red, blue);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: grey; */
+}
+.container{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 70%;
+    width: 30%;
+    background-color: aliceblue;
+}
+.board{
+    /* padding: 1rem; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+.cell{
+    background-color: blue;
+    border-radius: 3px;
+}
